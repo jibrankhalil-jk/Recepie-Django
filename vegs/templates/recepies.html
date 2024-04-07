@@ -1,0 +1,93 @@
+{% include "index.html" %} {% block start %}
+<div style="margin-top: 100px"></div>
+<div class="container mt-6">
+  <form
+    class="row row-cols-lg-auto g-4 col-5 container card mx-auto p-3"
+    method="post"
+    enctype="multipart/form-data"
+  >
+    {% csrf_token %}
+    <h1>Add Recepie</h1>
+    <div class="col-12">
+      <label class="visually-hidden" for="inlineFormInputGroupUsername"
+        >Recepie Name</label
+      >
+      <div class="input-group">
+        <div class="input-group-text">@</div>
+        <input
+          name="recepie_name"
+          type="text"
+          class="form-control"
+          id="inlineFormInputGroupUsername"
+          placeholder="Username"
+          required
+        />
+      </div>
+    </div>
+    <div class="col-12">
+      <label class="visually-hidden" for="inlineFormInputGroupUsername"
+        >Descreption</label
+      >
+      <div class="input-group">
+        <div class="input-group-text"></div>
+        <textarea
+          class="form-control"
+          name="recepie_descreption"
+          id="inlineFormInputGroupUsername"
+          placeholder="Descreption"
+          cols="10"
+          rows="2"
+          required
+        ></textarea>
+      </div>
+    </div>
+    <div class="col-12">
+      <label class="visually-hidden" for="inlineFormInputGroupUsername"
+        >Picture</label
+      >
+
+      <div class="input-group">
+        <div class="input-group-text"></div>
+        <input
+          name="recepie_pic"
+          type="file"
+          class="form-control"
+          id="inlineFormInputGroupUsername"
+          placeholder="Descreption"
+          required
+        />
+      </div>
+    </div>
+
+    <!-- <div class="col-12 mx-auto"> -->
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <!-- </div> -->
+  </form>
+</div>
+
+<br /><br /><br /><br />
+
+<table class="table container">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Descreption</th>
+      <th scope="col">Pic</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for rec in recepies %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <th scope="row">{{ rec.recepies_name }}</th>
+      <td colspan="2">{{rec.recepies_descreption}}</td>
+      <td colspan="2"><img style="width: 90px; " src="/media/{{rec.recepies_image}}" alt=""></td>
+      <!-- <td colspan="2">{{rec.recepies_image}}</td> -->
+      <!-- <td>@twitter</td> -->
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+{% endblock %}
