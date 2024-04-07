@@ -1,8 +1,13 @@
-from django.shortcuts import render , redirect
+from django.shortcuts import render , redirect , HttpResponse
 from .models import *
 
 # Create your views here.
 
+def deleterecepie(request,id):
+    print(id)
+    qer = Recepies.objects.get(id = id)
+    qer.delete()
+    return redirect("/")
 
 def recepies(request):
     if (request.method == "POST"):

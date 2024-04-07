@@ -10,6 +10,7 @@ from vegs.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', recepies),
+    path('recepie/<id>/delete/', deleterecepie,name="delete recepie"), # dyanamic url
     # path('', home  , name="Home"),
 ]
 

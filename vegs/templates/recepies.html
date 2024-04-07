@@ -74,6 +74,7 @@
       <th scope="col">Name</th>
       <th scope="col">Descreption</th>
       <th scope="col">Pic</th>
+      <th scope="col">remove</th>
     </tr>
   </thead>
   <tbody>
@@ -84,6 +85,7 @@
       <td colspan="2">{{rec.recepies_descreption}}</td>
       <td colspan="2"><img style="width: 90px; " src="/media/{{rec.recepies_image}}" alt=""></td>
       <!-- <td colspan="2">{{rec.recepies_image}}</td> -->
+      <td><button><a href="recepie/{{rec.id}}/delete/">Remove</a></button></td>
       <!-- <td>@twitter</td> -->
     </tr>
     {% endfor %}
